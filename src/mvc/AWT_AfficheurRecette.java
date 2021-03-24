@@ -37,12 +37,12 @@ public class AWT_AfficheurRecette extends Canvas implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
+		if (!(arg instanceof Integer)) {
 		List<String>in = (List<String>) arg;
 		this.ing=in;
 		
 		repaint();
-	
+	}
 	}
 
 }

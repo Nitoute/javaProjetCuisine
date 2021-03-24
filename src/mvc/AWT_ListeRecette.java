@@ -4,6 +4,8 @@ import java.awt.List;
 import java.awt.Panel;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -25,11 +27,42 @@ public class AWT_ListeRecette extends Panel implements Observer {
 		
 		m.addObserver(this);
 	}
+	
+	public void changerListe(int numNouvL) {
+		listeRecette.clear();
+		if (numNouvL==0) {
+			System.out.println("Entree");
+			for (String nomRecettes : this.modl.categorEntree.keySet()) {
+				listeRecette.add(nomRecettes);
+			}
+			this.add(listeRecette);
+		}
+		if (numNouvL==1) {
+			System.out.println("Plat");
+			for (String nomRecettes : this.modl.categorPlat.keySet()) {
+				listeRecette.add(nomRecettes);
+			}
+			this.add(listeRecette);
+		}
+		if (numNouvL==-1) {
+			System.out.println("Dessert");
+			for (String nomRecettes : this.modl.categorDessert.keySet()) {
+				listeRecette.add(nomRecettes);
+			}
+			this.add(listeRecette);
+		}
+	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		int nomR = this.listeRecette.getSelectedIndex();
-		//this.listeRecette.replaceItem(arg1.toString(), nomR);
-		this.listeRecette.select(nomR);
+		if (arg1 instanceof Integer) {
+			this.changerListe((int)arg1);
+		}
+		
+		else {
+			int nomR = this.listeRecette.getSelectedIndex();
+			//this.listeRecette.replaceItem(arg1.toString(), nomR);
+			this.listeRecette.select(nomR);
+		}
 	}
 }

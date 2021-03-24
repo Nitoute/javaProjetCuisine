@@ -12,6 +12,10 @@ import java.util.Observable;
 public class Modele extends Observable { 
 
 	public HashMap<String, List<String>> recettes;
+	public HashMap<String, List<String>> categorEntree;
+	public HashMap<String, List<String>> categorPlat;
+	public HashMap<String, List<String>> categorDessert;
+	
 	FileReader fr;
 	BufferedReader br;
 	String nomRecetteSelec = "flan de courgette";
@@ -21,6 +25,10 @@ public class Modele extends Observable {
 		this.fr = new FileReader(new File("donnees.csv"));
         this.br = new BufferedReader(fr);
 		this.recettes = new HashMap<String, List<String>>();
+		this.categorEntree = new HashMap<String, List<String>>();
+		this.categorPlat = new HashMap<String, List<String>>();
+		this.categorDessert = new HashMap<String, List<String>>();
+		
 		for (String line = br.readLine(); line != null; line = br.readLine()) {
             String[] parts = line.split(";");
             String id = parts[0];
@@ -31,6 +39,17 @@ public class Modele extends Observable {
             	listeIngredients.add(i);
             }
             recettes.put(id, listeIngredients);
+            
+            if (categorie.equals("entree")) {
+            	categorEntree.put(id, listeIngredients);
+            }
+            
+            if (categorie.equals("plat")) {
+            	categorPlat.put(id, listeIngredients);
+            }
+            if (categorie.equals("dessert")) {
+            	categorDessert.put(id, listeIngredients);
+            }
 		}
 	}
 
@@ -46,11 +65,10 @@ public class Modele extends Observable {
 		this.notifyObservers(this.recettes.get(this.nomRecetteSelec));
 	}
 
-	/*
-	public void changeNote(int nouveauRating) {
-		this.images.get(this.indexImageSelectionnee).note = nouveauRating;
+	
+	public void changeListe(int numCategorie) {
 		this.setChanged();
-		this.notifyObservers(this.images.get(this.indexImageSelectionnee));
+		this.notifyObservers(numCategorie);
 	}
-	 */
+	 
 }

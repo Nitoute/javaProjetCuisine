@@ -11,7 +11,7 @@ import java.util.Observer;
 public class AWT_Categories extends Panel implements Observer{
 	Checkbox[] categories = new Checkbox[3];
 	
-	public static String[] libelles = {"Entre", "Plat", "dessert"};
+	public static String[] libelles = {"Entree", "Plat", "Dessert"};
 	
 	public AWT_Categories(ItemListener l, Modele m) {
 		

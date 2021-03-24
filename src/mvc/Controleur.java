@@ -2,6 +2,7 @@ package mvc;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Arrays;
 
 
 public class Controleur implements ItemListener {
@@ -18,8 +19,8 @@ public class Controleur implements ItemListener {
 			this.modl.selection((Integer)e.getItem());	
 		} 
 		else if (e.getSource() instanceof java.awt.Checkbox) {
-			//int index = Arrays.binarySearch(AWT_NoteImage.libelles, e.getItem());
-			//this.modl.changeNote(index);
+			int index = Arrays.binarySearch(AWT_Categories.libelles, e.getItem());
+			this.modl.changeListe(index);
 		}
 	}
 	
