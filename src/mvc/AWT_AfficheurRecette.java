@@ -22,7 +22,7 @@ public class AWT_AfficheurRecette extends Canvas implements Observer {
 	}
 
 	public void paint(Graphics g) {
-		g.drawString("Liste d'ingrédients : ", 50, 35);
+		g.drawString("Liste d'ingredients : ", 50, 35);
 		int x=50;
 		int y=50;
 		for (String ingrDefaut : ing) {

@@ -25,10 +25,10 @@ public class GestionRecette extends Frame implements WindowListener {
 
 		AWT_AfficheurRecette panneauDroite = new AWT_AfficheurRecette(modl);
 		this.add(panneauDroite, BorderLayout.EAST);
-/*
-		AWT_NoteImage panneauBas = new AWT_NoteImage(ctrl, modl);
+
+		AWT_Categories panneauBas = new AWT_Categories(ctrl, modl);
 		this.add(panneauBas, BorderLayout.SOUTH);
-*/
+
 		this.addWindowListener(this);
 		this.setTitle("Visualisation d'images");
 		this.pack();
