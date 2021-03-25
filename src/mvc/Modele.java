@@ -58,9 +58,11 @@ public class Modele extends Observable {
 		for ( String nomR : recettes.keySet() ) {
 		    if(i==item) {
 		    	this.nomRecetteSelec = nomR;
+		    	
 		    }
 		    i+=1;
 		}
+		//System.out.println(this.recettes);
 		this.setChanged();
 		this.notifyObservers(this.recettes.get(this.nomRecetteSelec));
 	}

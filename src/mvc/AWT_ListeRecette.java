@@ -28,23 +28,28 @@ public class AWT_ListeRecette extends Panel implements Observer {
 		m.addObserver(this);
 	}
 	
+	
 	public void changerListe(int numNouvL) {
-		listeRecette.clear();
+		this.listeRecette.removeAll();
+		System.out.println(listeRecette);
 		if (numNouvL==0) {
+			
 			System.out.println("Entree");
 			for (String nomRecettes : this.modl.categorEntree.keySet()) {
 				listeRecette.add(nomRecettes);
 			}
 			this.add(listeRecette);
 		}
-		if (numNouvL==1) {
+		else if (numNouvL==1) {
+			
 			System.out.println("Plat");
 			for (String nomRecettes : this.modl.categorPlat.keySet()) {
 				listeRecette.add(nomRecettes);
 			}
 			this.add(listeRecette);
 		}
-		if (numNouvL==-1) {
+		else if (numNouvL==-1) {
+			
 			System.out.println("Dessert");
 			for (String nomRecettes : this.modl.categorDessert.keySet()) {
 				listeRecette.add(nomRecettes);

@@ -27,10 +27,10 @@ public class GestionRecette extends Frame implements WindowListener {
 		this.add(panneauDroite, BorderLayout.EAST);
 
 		AWT_Categories panneauBas = new AWT_Categories(ctrl, modl);
-		this.add(panneauBas, BorderLayout.SOUTH);
+		this.add(panneauBas,BorderLayout.SOUTH);
 
 		this.addWindowListener(this);
-		this.setTitle("Visualisation d'images");
+		this.setTitle("Application de gestion de recettes");
 		this.pack();
 		this.setVisible(true);
 	}
