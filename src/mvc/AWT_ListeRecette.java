@@ -31,10 +31,9 @@ public class AWT_ListeRecette extends Panel implements Observer {
 	
 	public void changerListe(int numNouvL) {
 		this.listeRecette.removeAll();
-		System.out.println(listeRecette);
 		if (numNouvL==0) {
 			
-			System.out.println("Entree");
+			
 			for (String nomRecettes : this.modl.categorEntree.keySet()) {
 				listeRecette.add(nomRecettes);
 			}
@@ -42,7 +41,7 @@ public class AWT_ListeRecette extends Panel implements Observer {
 		}
 		else if (numNouvL==1) {
 			
-			System.out.println("Plat");
+			
 			for (String nomRecettes : this.modl.categorPlat.keySet()) {
 				listeRecette.add(nomRecettes);
 			}
@@ -50,7 +49,7 @@ public class AWT_ListeRecette extends Panel implements Observer {
 		}
 		else if (numNouvL==-1) {
 			
-			System.out.println("Dessert");
+			
 			for (String nomRecettes : this.modl.categorDessert.keySet()) {
 				listeRecette.add(nomRecettes);
 			}
@@ -62,6 +61,7 @@ public class AWT_ListeRecette extends Panel implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		if (arg1 instanceof Integer) {
 			this.changerListe((int)arg1);
+			this.modl.categor = ((int)arg1);
 		}
 		
 		else {

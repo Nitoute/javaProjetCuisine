@@ -19,6 +19,7 @@ public class Modele extends Observable {
 	FileReader fr;
 	BufferedReader br;
 	String nomRecetteSelec = "flan de courgette";
+	int categor = -10;
 
 	public Modele() throws IOException {
 		
@@ -55,12 +56,41 @@ public class Modele extends Observable {
 
 	public void selection(int item) {
 		int i = 0;
-		for ( String nomR : recettes.keySet() ) {
-		    if(i==item) {
-		    	this.nomRecetteSelec = nomR;
+		if(this.categor==0) {
+			for ( String nomR : categorEntree.keySet() ) {
+				if(i==item) {
+					this.nomRecetteSelec = nomR;
 		    	
-		    }
-		    i+=1;
+				}
+				i+=1;
+			}
+		}
+		else if(this.categor==1) {
+			for ( String nomR : categorPlat.keySet() ) {
+				if(i==item) {
+					this.nomRecetteSelec = nomR;
+		    	
+				}
+				i+=1;
+			}
+		}
+		else if(this.categor==-1) {
+			for ( String nomR : categorDessert.keySet() ) {
+				if(i==item) {
+					this.nomRecetteSelec = nomR;
+		    	
+				}
+				i+=1;
+			}
+		}
+		else {
+			for ( String nomR : recettes.keySet() ) {
+				if(i==item) {
+					this.nomRecetteSelec = nomR;
+		    	
+				}
+				i+=1;
+			}
 		}
 		//System.out.println(this.recettes);
 		this.setChanged();
@@ -69,6 +99,7 @@ public class Modele extends Observable {
 
 	
 	public void changeListe(int numCategorie) {
+		this.categor = numCategorie;
 		this.setChanged();
 		this.notifyObservers(numCategorie);
 	}
