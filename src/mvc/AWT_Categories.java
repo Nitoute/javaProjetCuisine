@@ -8,6 +8,8 @@ import java.awt.Panel;
 import java.awt.event.ItemListener;
 import java.util.Observable;
 import java.util.Observer;
+import java.awt.*;  
+import java.awt.event.*;
 
 public class AWT_Categories extends Panel implements Observer{
 	Checkbox[] categories = new Checkbox[3];
@@ -29,13 +31,30 @@ public class AWT_Categories extends Panel implements Observer{
 		}
 		m.addObserver(this);
 		
+		
 	}
 	
-
+	
 	@Override
 	public void update(Observable o, Object arg) {
-		
+		if ((int)arg==-1) {
+			arg = 2;
+			System.out.println(this.categories[(int) arg]);
+			if(this.categories[(int) arg].getState()) {
+				this.categories[(int) arg].setState(false);
+			}
+			
+		}
+		else {
+			System.out.println(this.categories[(int) arg]);
+			if(this.categories[(int) arg].getState()) {
+				this.categories[(int) arg].setState(false);
+			}
+		}
+
 		
 	}
+	
+	
+	}
 
-}

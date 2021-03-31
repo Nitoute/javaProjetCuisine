@@ -39,5 +39,7 @@ public class AWT_AjouterRecette extends Panel implements ActionListener{
 		
 		
 	}
-
+	
 }
+
+

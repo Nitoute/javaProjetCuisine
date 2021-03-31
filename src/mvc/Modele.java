@@ -95,7 +95,10 @@ public class Modele extends Observable {
 		//System.out.println(this.recettes);
 		this.setChanged();
 		this.notifyObservers(this.recettes.get(this.nomRecetteSelec));
+		
 	}
+	
+	
 
 	
 	public void changeListe(int numCategorie) {
