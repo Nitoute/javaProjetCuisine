@@ -31,7 +31,11 @@ public class GestionRecette extends Frame implements WindowListener {
 		
 		AWT_AjouterRecette panneauBasDroite = new AWT_AjouterRecette(ctrl, modl);
 		this.add(panneauBasDroite,BorderLayout.NORTH);
-
+		
+		AWT_SupprimerRecette boutonSupprimerRecette = new AWT_SupprimerRecette(ctrl, modl);
+		this.add(boutonSupprimerRecette,BorderLayout.PAGE_END);
+		 
+		
 		this.addWindowListener(this);
 		this.setTitle("Application de gestion de recettes");
 		this.pack();
