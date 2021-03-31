@@ -22,6 +22,11 @@ public class Controleur implements ItemListener {
 			int index = Arrays.binarySearch(AWT_Categories.libelles, e.getItem());
 			this.modl.changeListe(index);
 		}
+		
+		else if (e.getSource() instanceof java.awt.Button) {
+			System.out.print("Bouton appuyer");
+		}
+		
 	}
 	
 }
