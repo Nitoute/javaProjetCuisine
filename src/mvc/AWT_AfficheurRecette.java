@@ -27,13 +27,16 @@ public class AWT_AfficheurRecette extends Canvas implements Observer {
 	}
 
 	public void paint(Graphics g) {
-		
+		int taillestr= " Liste ingrédients ".length();
 		g.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,30));
-		g.drawRect(120, 15, 300, 50);
+		g.drawRect(120, 19, 19*taillestr, 40);
 		g.setColor(Color.gray);
-		g.fillRect(120, 15, 300, 50);
+		g.fillRect(120, 19, 19*taillestr, 40);
 		g.setColor(Color.BLACK);
-		g.drawString("Liste d'ingredients ", 150, 50);
+		
+		
+		
+		g.drawString(" Liste ingrédients ", 150, 50);
 		
 		g.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
 		int x=50;
