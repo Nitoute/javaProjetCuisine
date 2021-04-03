@@ -17,16 +17,22 @@ import java.awt.Label;
 
 
 
-public class AWT_AjouterRecette extends Panel implements ActionListener{
+public class AWT_AjouterSupprimerRecette extends Panel implements ActionListener{
 	
 	Button b;
+	Button bouton;
 
-	public AWT_AjouterRecette(ItemListener l, Modele m) {
+	public AWT_AjouterSupprimerRecette(ItemListener l, Modele m) {
 		super();
 		this.b = new Button("Ajouter recette");
 		this.b.setBounds(50,50, 150,20);
 		this.add(b);
 		
+		this.bouton = new Button("suprimer recette");
+		this.bouton.setBounds(150,50, 150,20);
+		this.add(bouton);
+		
+		bouton.addActionListener(this);
 		b.addActionListener(this);
 		
 	}

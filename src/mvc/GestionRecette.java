@@ -29,7 +29,7 @@ public class GestionRecette extends Frame implements WindowListener {
 		AWT_Categories panneauBas = new AWT_Categories(ctrl, modl);
 		this.add(panneauBas,BorderLayout.SOUTH);
 		
-		AWT_AjouterRecette panneauBasDroite = new AWT_AjouterRecette(ctrl, modl);
+		AWT_AjouterSupprimerRecette panneauBasDroite = new AWT_AjouterSupprimerRecette(ctrl, modl);
 		this.add(panneauBasDroite,BorderLayout.NORTH);
 		
 		/*
