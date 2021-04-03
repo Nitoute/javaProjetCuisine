@@ -83,7 +83,7 @@ public class Modele extends Observable {
 				i+=1;
 			}
 		}
-		else {
+		else if(this.categor==3) {
 			for ( String nomR : recettes.keySet() ) {
 				if(i==item) {
 					this.nomRecetteSelec = nomR;
@@ -92,6 +92,8 @@ public class Modele extends Observable {
 				i+=1;
 			}
 		}
+		
+		
 		//System.out.println(this.recettes);
 		this.setChanged();
 		this.notifyObservers(this.recettes.get(this.nomRecetteSelec));

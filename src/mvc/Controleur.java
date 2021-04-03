@@ -20,12 +20,15 @@ public class Controleur implements ItemListener {
 		} 
 		else if (e.getSource() instanceof java.awt.Checkbox) {
 			int index = Arrays.binarySearch(AWT_Categories.libelles, e.getItem());
+			System.out.println(index);
 			this.modl.changeListe(index);
 		}
 		
+		/*
 		else if (e.getSource() instanceof java.awt.Button) {
 			System.out.print("Bouton appuyer");
 		}
+		*/
 		
 	}
 	

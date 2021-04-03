@@ -55,6 +55,15 @@ public class AWT_ListeRecette extends Panel implements Observer {
 			}
 			this.add(listeRecette);
 		}
+
+		else if (numNouvL==3) {
+			
+			
+			for (String nomRecettes : this.modl.recettes.keySet()) {
+				listeRecette.add(nomRecettes);
+			}
+			this.add(listeRecette);
+		}
 	}
 
 	@Override

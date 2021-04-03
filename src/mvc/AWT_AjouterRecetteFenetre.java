@@ -2,18 +2,29 @@ package mvc;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import java.awt.BorderLayout;
 import java.awt.Choice;
 import java.awt.Dialog;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.TextArea;
+import java.awt.*;
+import java.awt.event.*;
+
 
 public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
 
-	public AWT_AjouterRecetteFenetre() {
+	public AWT_AjouterRecetteFenetre() throws IOException {
 		super();
 		this.addWindowListener(this);
+		
+		
+		
+		
+		this.setLayout(new BorderLayout());
 		
 		Dialog d = new Dialog(this , "Ajouter une nouvelle recette", true); 
         d.setLayout( new FlowLayout() );
@@ -26,6 +37,7 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
         
         TextArea nomR=new TextArea("Entrée le nom de votre recette"); 
         nomR.setBounds(10,10,10,10);
+        nomR.setPreferredSize(new Dimension(450,50));
         
         TextArea ingrd=new TextArea("Entrée la liste de vos ingrédients"); 
         ingrd.setBounds(10,10,10,10);
@@ -36,9 +48,10 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
         d.add(nomR);
         d.add(new Label ("Ajouter les ingrédients de vos recettes"));
         d.add(ingrd);
-        d.setSize(300,300);    
+        d.setSize(500,600);    
         d.setVisible(true);
-        
+         
+       
         this.addWindowListener(this);
         
 	}
@@ -51,13 +64,13 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
 
 	@Override
 	public void windowClosed(WindowEvent arg0) {
-		System.exit(0);
+		
 		
 	}
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+	
 		
 	}
 

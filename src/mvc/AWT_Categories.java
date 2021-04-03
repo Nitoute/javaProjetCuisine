@@ -12,9 +12,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class AWT_Categories extends Panel implements Observer{
-	Checkbox[] categories = new Checkbox[3];
+	Checkbox[] categories = new Checkbox[4];
 	
-	public static String[] libelles = {"Entree", "Plat", "Dessert"};
+	public static String[] libelles = {"Entree", "Plat", "Dessert","tout"};
 	
 	public AWT_Categories(ItemListener l, Modele m) {
 		
@@ -23,12 +23,14 @@ public class AWT_Categories extends Panel implements Observer{
 		
 		CheckboxGroup cg=new CheckboxGroup();
 		
-		for (int i=0; i<3; i++) {
+		for (int i=0; i<4; i++) {
 			this.categories[i] = new Checkbox(libelles[i], false, cg);
 			this.categories[i].addItemListener(l);
 			this.add(this.categories[i]);
 			
 		}
+		
+		this.categories[3].setState(true);
 		m.addObserver(this);
 		
 		
@@ -37,21 +39,6 @@ public class AWT_Categories extends Panel implements Observer{
 	
 	@Override
 	public void update(Observable o, Object arg) {
-		if ((int)arg==-1) {
-			arg = 2;
-			System.out.println(this.categories[(int) arg]);
-			if(this.categories[(int) arg].getState()) {
-				this.categories[(int) arg].setState(false);
-			}
-			
-		}
-		else {
-			System.out.println(this.categories[(int) arg]);
-			if(this.categories[(int) arg].getState()) {
-				this.categories[(int) arg].setState(false);
-			}
-		}
-
 		
 	}
 	
