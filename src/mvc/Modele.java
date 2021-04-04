@@ -126,28 +126,24 @@ public class Modele extends Observable {
 	
 	public void supprimerRecette() {
 		this.recettes.remove(this.nomRecetteSelec);
-		this.changeListe(this.categor);
 		
-		try {
+		
+		if(this.categor==0) {
 			this.categorEntree.remove(this.nomRecetteSelec);
-			this.changeListe(this.categor);
-		}finally{
-			
 		}
 		
-		try {
+		
+		else if(this.categor==1) {
 			this.categorPlat.remove(this.nomRecetteSelec);
-			this.changeListe(this.categor);
-		}finally{
-			
+		}	
+		
+		
+		else if(this.categor==-1) {
+			this.categorDessert.remove(this.nomRecetteSelec);
 		}
 		
-		try {
-			this.categorDessert.remove(this.nomRecetteSelec);
-			this.changeListe(this.categor);
-		}finally{
-			
-		}
+		
+		this.changeListe(this.categor);
 			
 	}
 	
