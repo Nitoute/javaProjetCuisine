@@ -1,5 +1,7 @@
 package mvc;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.*;
 import java.awt.event.*;
@@ -82,6 +84,21 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
 		this.nouvCatgr = this.c.getSelectedItem();
 		this.nouvIngr = this.ingrd.getText().split(",");
 		this.m.ajouterRecette(this.nouvNomR, this.nouvCatgr, this.nouvIngr);
+		
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("donnees.csv", true));
+			writer.newLine();
+			writer.append(this.nouvNomR);
+			writer.append(";");
+			writer.append(this.nouvCatgr);
+			writer.append(";");
+			writer.append(this.ingrd.getText());
+			writer.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		
 	}
 
