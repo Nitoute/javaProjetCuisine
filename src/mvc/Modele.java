@@ -127,18 +127,18 @@ public class Modele extends Observable {
 	public void supprimerRecette() {
 		this.recettes.remove(this.nomRecetteSelec);
 		
-		
-		if(this.categor==0) {
+		System.out.print(this.categor);
+		if(this.categorEntree.containsKey(this.nomRecetteSelec)) {
 			this.categorEntree.remove(this.nomRecetteSelec);
 		}
 		
 		
-		else if(this.categor==1) {
+		else if(this.categorPlat.containsKey(this.nomRecetteSelec)) {
 			this.categorPlat.remove(this.nomRecetteSelec);
 		}	
 		
 		
-		else if(this.categor==-1) {
+		else if(this.categorDessert.containsKey(this.nomRecetteSelec)) {
 			this.categorDessert.remove(this.nomRecetteSelec);
 		}
 		
