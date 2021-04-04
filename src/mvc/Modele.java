@@ -19,7 +19,7 @@ public class Modele extends Observable {
 	FileReader fr;
 	BufferedReader br;
 	String nomRecetteSelec = "flan de courgette";
-	int categor = -10;
+	int categor = 3;
 
 	public Modele() throws IOException {
 		
@@ -117,6 +117,33 @@ public class Modele extends Observable {
 		this.categor = numCategorie;
 		this.setChanged();
 		this.notifyObservers(numCategorie);
+	}
+	
+	public void ajouterRecette(String nomI, String categorie, String[] ingredient) {
+		System.out.println(nomI);
+		System.out.println(categorie);
+		ArrayList<String> listeIngredients = new ArrayList<>();
+		for (String i : ingredient) {
+			listeIngredients.add(i);
+		}
+		
+		this.recettes.put(nomI, listeIngredients);
+		
+		
+		if (categorie == "Entree") {
+			this.categorEntree.put(nomI, listeIngredients);
+		}
+		
+		if (categorie == "Plat") {
+			this.categorPlat.put(nomI, listeIngredients);
+		}
+		
+		if (categorie == "Dessert") {
+			this.categorDessert.put(nomI, listeIngredients);
+		}
+		
+		this.setChanged();
+		this.notifyObservers(this.categor);
 	}
 	 
 }

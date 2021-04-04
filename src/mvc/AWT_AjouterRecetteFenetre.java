@@ -1,23 +1,30 @@
 package mvc;
 
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.IOException;
-
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
-
+import java.util.Observable;
+import java.util.Observer;
 import java.awt.*;
 import java.awt.event.*;
 
 
-public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
+public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
+	
+	Modele m;
+	
+	String nouvNomR;
+	String nouvCatgr;
+	String[] nouvIngr;
+	
+	TextArea nomR;
+	TextArea ingrd;
+	Choice c;
 
-	public AWT_AjouterRecetteFenetre() throws IOException {
+	public AWT_AjouterRecetteFenetre(ItemListener l, Modele m) throws IOException {
 		super();
-		this.addWindowListener(this);
 		
+		this.m=m;
 		this.setLayout(new BorderLayout());
+		
 		
 	    Dialog d = new Dialog(this); 
 	    d.setTitle("Ajouter une nouvelle recette");
@@ -26,29 +33,31 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
 	    
         d.setLayout( new FlowLayout() );
         
-        Choice c=new Choice();
+        this.c=new Choice();
         c.setBounds(100,100, 75,50);  
-        c.add("Entrée");  
+        c.add("Entree");  
         c.add("Plat");  
         c.add("Dessert");
         
-        TextArea nomR=new TextArea("Entrée le nom de votre recette"); 
+        this.nomR=new TextArea("Entree le nom de votre recette"); 
         nomR.setBounds(10,10,10,10);
         nomR.setPreferredSize(new Dimension(450,50));
         
-        TextArea ingrd=new TextArea("Entrée la liste de vos ingrédients"); 
+        this.ingrd=new TextArea("Entree la liste de vos ingredients"); 
         ingrd.setBounds(10,10,10,10);
+        
+        Button envoy = new Button("Envoyer");
+        envoy.addActionListener(this);  
        
-        d.add( new Label ("Veuillez choisir une catégorie"));  
+        d.add( new Label ("Veuillez choisir une categorie"));  
         d.add(c);
         d.add(new Label ("Indiquez le nom de votre recette"));
         d.add(nomR);
-        d.add(new Label ("Ajouter les ingrédients de vos recettes"));
+        d.add(new Label ("Ajouter les ingredients de vos recettes"));
         d.add(ingrd);
+        d.add(envoy);
         d.setSize(500,600);    
         d.setVisible(true);
-        
-        
          
        
         d.addWindowListener(new WindowAdapter()
@@ -68,48 +77,16 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
         
 	}
 
+
 	@Override
-	public void windowActivated(WindowEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		this.nouvNomR = this.nomR.getText();
+		this.nouvCatgr = this.c.getSelectedItem();
+		this.nouvIngr = this.ingrd.getText().split(",");
+		this.m.ajouterRecette(this.nouvNomR, this.nouvCatgr, this.nouvIngr);
 		
 	}
 
 	
-	@Override
-	public void windowClosed(WindowEvent arg0) {
-		//System.exit(0); 
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent arg0) {
-		//System.exit(0); 
-		
-	}
-	
-
-	@Override
-	public void windowDeactivated(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowIconified(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowOpened(WindowEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
