@@ -8,8 +8,6 @@ import java.awt.Panel;
 import java.awt.event.ItemListener;
 import java.util.Observable;
 import java.util.Observer;
-import java.awt.*;  
-import java.awt.event.*;
 
 public class AWT_Categories extends Panel implements Observer{
 	Checkbox[] categories = new Checkbox[4];

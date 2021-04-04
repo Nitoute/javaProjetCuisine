@@ -4,8 +4,6 @@ import java.awt.List;
 import java.awt.Panel;
 import java.awt.event.ItemListener;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
 

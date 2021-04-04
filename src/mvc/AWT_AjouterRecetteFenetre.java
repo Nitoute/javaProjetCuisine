@@ -1,8 +1,6 @@
 package mvc;
 
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 import java.awt.*;
 import java.awt.event.*;
 

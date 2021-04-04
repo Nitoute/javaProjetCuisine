@@ -5,7 +5,6 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
-import java.io.IOException;
 
 public class AWT_SupprimerRecette extends Panel implements ActionListener{
 	

@@ -1,18 +1,11 @@
 package mvc;
 
-import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Choice;
 import java.awt.Panel;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Dialog;
-import java.awt.Frame;
-import java.awt.FlowLayout;
-import java.awt.Choice;
-import java.awt.Label;
 
 
 
