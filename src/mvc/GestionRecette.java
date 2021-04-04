@@ -1,7 +1,12 @@
 package mvc;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Panel;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
@@ -18,7 +23,7 @@ public class GestionRecette extends Frame implements WindowListener {
 		Modele modl = new Modele();
 		Controleur ctrl = new Controleur(modl);
 		
-		this.setLayout(new BorderLayout());
+	    this.setLayout(new BorderLayout());
 
 		AWT_ListeRecette panneauGauche = new AWT_ListeRecette(ctrl, modl);
 		this.add(panneauGauche, BorderLayout.WEST);
@@ -29,14 +34,18 @@ public class GestionRecette extends Frame implements WindowListener {
 		AWT_Categories panneauBas = new AWT_Categories(ctrl, modl);
 		this.add(panneauBas,BorderLayout.SOUTH);
 		
-		AWT_AjouterSupprimerRecette panneauBasDroite = new AWT_AjouterSupprimerRecette(ctrl, modl);
-		this.add(panneauBasDroite,BorderLayout.NORTH);
 		
-		/*
+		//cdivision en grille de BorderLayout.NORTH => permet de mettre les bouttons cote à cote
+		Panel pan = new Panel(new GridLayout(1,2));
+		this.add(pan,BorderLayout.NORTH);
+		
+		AWT_AjouterRecette panneauBasDroite = new AWT_AjouterRecette(ctrl, modl);
+		pan.add(panneauBasDroite);
+		
 		AWT_SupprimerRecette boutonSupprimerRecette = new AWT_SupprimerRecette(ctrl, modl);
-		this.add(boutonSupprimerRecette,BorderLayout.PAGE_END);
-		 */
+		pan.add(boutonSupprimerRecette);
 		
+		 
 		this.addWindowListener(this);
 		this.setTitle("Application de gestion de recettes");
 		this.pack();

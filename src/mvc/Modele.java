@@ -93,6 +93,16 @@ public class Modele extends Observable {
 			}
 		}
 		
+		else {
+			for ( String nomR : recettes.keySet() ) {
+				if(i==item) {
+					this.nomRecetteSelec = nomR;
+		    	
+				}
+				i+=1;
+			}
+		}
+		
 		
 		//System.out.println(this.recettes);
 		this.setChanged();

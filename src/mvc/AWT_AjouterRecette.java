@@ -17,22 +17,23 @@ import java.awt.Label;
 
 
 
-public class AWT_AjouterSupprimerRecette extends Panel implements ActionListener{
+public class AWT_AjouterRecette extends Panel implements ActionListener{
 	
 	Button b;
-	Button bouton;
+	//Button bouton;
 
-	public AWT_AjouterSupprimerRecette(ItemListener l, Modele m) {
+	public AWT_AjouterRecette(ItemListener l, Modele m) {
 		super();
 		this.b = new Button("Ajouter recette");
 		this.b.setBounds(50,50, 150,20);
 		this.add(b);
 		
+		/*
 		this.bouton = new Button("suprimer recette");
 		this.bouton.setBounds(150,50, 150,20);
 		this.add(bouton);
-		
-		bouton.addActionListener(this);
+		*/
+		//bouton.addActionListener(this);
 		b.addActionListener(this);
 		
 	}
@@ -42,12 +43,13 @@ public class AWT_AjouterSupprimerRecette extends Panel implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		try {
 			AWT_AjouterRecetteFenetre pop = new AWT_AjouterRecetteFenetre();
+			//AWT_SupprimerRecetteFenetre pop1 = new AWT_SupprimerRecetteFenetre();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
-		System.out.println("Bouton Appuyer dans AWT_AjouterRecette");
+		//System.out.println("Bouton Appuyer dans AWT_AjouterRecette");
 		
 		
 	}
