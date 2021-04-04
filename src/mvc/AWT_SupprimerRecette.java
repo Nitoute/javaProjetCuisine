@@ -10,13 +10,16 @@ import java.io.IOException;
 public class AWT_SupprimerRecette extends Panel implements ActionListener{
 	
 	Button b;
+	Modele m;
+	ItemListener l;
 	
 	public AWT_SupprimerRecette(ItemListener l, Modele m) {
 		super();
 		this.b = new Button("Supprimer recette");
 		this.b.setBounds(50,50, 150,20);
 		this.add(b);
-		
+		this.l = l;
+		this.m = m;
 		
 		b.addActionListener(this);
 		
@@ -24,15 +27,8 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		try {
-			AWT_SupprimerRecetteFenetre pop1 = new AWT_SupprimerRecetteFenetre();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
+		this.m.supprimerRecette();
 		//System.out.println("Bouton Appuyer dans AWT_AjouterRecette");
-		
 	}
 
 }

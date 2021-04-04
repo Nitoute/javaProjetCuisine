@@ -2,6 +2,7 @@ package mvc;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +11,9 @@ import java.util.List;
 import java.util.Observable;
 
 public class Modele extends Observable { 
-
+	
+	
+	
 	public HashMap<String, List<String>> recettes;
 	public HashMap<String, List<String>> categorEntree;
 	public HashMap<String, List<String>> categorPlat;
@@ -22,6 +25,7 @@ public class Modele extends Observable {
 	int categor = 3;
 
 	public Modele() throws IOException {
+		
 		
 		this.fr = new FileReader(new File("donnees.csv"));
         this.br = new BufferedReader(fr);
@@ -119,9 +123,37 @@ public class Modele extends Observable {
 		this.notifyObservers(numCategorie);
 	}
 	
+	
+	public void supprimerRecette() {
+		this.recettes.remove(this.nomRecetteSelec);
+		this.changeListe(this.categor);
+		
+		try {
+			this.categorEntree.remove(this.nomRecetteSelec);
+			this.changeListe(this.categor);
+		}finally{
+			
+		}
+		
+		try {
+			this.categorPlat.remove(this.nomRecetteSelec);
+			this.changeListe(this.categor);
+		}finally{
+			
+		}
+		
+		try {
+			this.categorDessert.remove(this.nomRecetteSelec);
+			this.changeListe(this.categor);
+		}finally{
+			
+		}
+			
+	}
+	
 	public void ajouterRecette(String nomI, String categorie, String[] ingredient) {
-		System.out.println(nomI);
-		System.out.println(categorie);
+		//System.out.println(nomI);
+		//System.out.println(categorie);
 		ArrayList<String> listeIngredients = new ArrayList<>();
 		for (String i : ingredient) {
 			listeIngredients.add(i);

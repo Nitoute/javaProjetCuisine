@@ -15,13 +15,13 @@ public class Controleur implements ItemListener {
 	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		System.out.print(e);
+		//System.out.print(e);
 		if (e.getSource() instanceof java.awt.List) {
 			this.modl.selection((Integer)e.getItem());	
 		} 
 		else if (e.getSource() instanceof java.awt.Checkbox) {
 			int index = Arrays.binarySearch(AWT_Categories.libelles, e.getItem());
-			System.out.println(index);
+			//System.out.println(index);
 			this.modl.changeListe(index);
 		}
 		
