@@ -3,14 +3,10 @@ package mvc;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
-import java.awt.BorderLayout;
-import java.awt.Choice;
-import java.awt.Dialog;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.Label;
-import java.awt.TextArea;
+
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -21,12 +17,13 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
 		super();
 		this.addWindowListener(this);
 		
-		
-		
-		
 		this.setLayout(new BorderLayout());
 		
-		Dialog d = new Dialog(this , "Ajouter une nouvelle recette", true); 
+	    Dialog d = new Dialog(this); 
+	    d.setTitle("Ajouter une nouvelle recette");
+	   
+	   
+	    
         d.setLayout( new FlowLayout() );
         
         Choice c=new Choice();
@@ -50,9 +47,24 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
         d.add(ingrd);
         d.setSize(500,600);    
         d.setVisible(true);
+        
+        
          
        
-        this.addWindowListener(this);
+        d.addWindowListener(new WindowAdapter()
+        		{
+        	public void windowClosed(WindowEvent e)
+        	  {
+        	    //je laisse cette partie au cas ou
+        	    
+        	  }
+
+        	  public void windowClosing(WindowEvent e)
+        	  {
+        	    
+        	    dispose();
+        	  }
+        		});
         
 	}
 
@@ -62,17 +74,19 @@ public class AWT_AjouterRecetteFenetre extends Frame implements WindowListener{
 		
 	}
 
+	
 	@Override
 	public void windowClosed(WindowEvent arg0) {
-		
+		//System.exit(0); 
 		
 	}
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {
-	
+		//System.exit(0); 
 		
 	}
+	
 
 	@Override
 	public void windowDeactivated(WindowEvent arg0) {

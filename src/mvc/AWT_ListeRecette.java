@@ -69,6 +69,7 @@ public class AWT_ListeRecette extends Panel implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		if (arg1 instanceof Integer) {
+			//System.out.println("appui sur recette");
 			this.changerListe((int)arg1);
 			this.modl.categor = ((int)arg1);
 		}
