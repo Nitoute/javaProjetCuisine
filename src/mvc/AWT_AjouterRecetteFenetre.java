@@ -3,6 +3,9 @@ package mvc;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import javax.swing.BoxLayout;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -23,7 +26,6 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
 		super();
 		
 		this.m=m;
-		this.setLayout(new BorderLayout());
 		
 		
 	    Dialog d = new Dialog(this); 
@@ -31,7 +33,7 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
 	   
 	   
 	    
-        d.setLayout( new FlowLayout() );
+        d.setLayout( new BoxLayout(d ,BoxLayout.Y_AXIS ) );
         
         this.c=new Choice();
         c.setBounds(100,100, 75,50);  
@@ -40,13 +42,13 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
         c.add("Dessert");
         
         this.nomR=new TextArea("Entree le nom de votre recette"); 
-        nomR.setBounds(10,10,10,10);
-        nomR.setPreferredSize(new Dimension(450,50));
+        nomR.setPreferredSize(new Dimension(200,40));
         
         this.ingrd=new TextArea("Entree la liste de vos ingredients"); 
-        ingrd.setBounds(10,10,10,10);
+        ingrd.setPreferredSize(new Dimension(200,40));;
         
         Button envoy = new Button("Envoyer");
+        envoy.setPreferredSize(new Dimension(200,40));
         envoy.addActionListener(this);  
        
         d.add( new Label ("Veuillez choisir une categorie"));  

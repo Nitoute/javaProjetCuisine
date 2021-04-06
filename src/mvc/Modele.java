@@ -2,6 +2,7 @@ package mvc;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -123,7 +124,7 @@ public class Modele extends Observable {
 	}
 	
 	
-	public void supprimerRecette() {
+	public void supprimerRecette() throws IOException {
 		this.recettes.remove(this.nomRecetteSelec);
 		
 		//System.out.print(this.categor);
@@ -143,7 +144,8 @@ public class Modele extends Observable {
 		
 		
 		this.changeListe(this.categor);
-			
+		
+		
 	}
 	
 	public void ajouterRecette(String nomI, String categorie, String[] ingredient) {
