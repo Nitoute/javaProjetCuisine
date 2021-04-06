@@ -85,7 +85,9 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 					writer.append(listeCategor.get(i));
 					writer.append(";");
 					writer.append(listeIngr.get(i));
-					writer.newLine();
+					if (i!=listeNomRecette.size()-1) {
+						writer.newLine();
+					}
 				}
 				writer.close();
 			} catch (IOException e1) {
