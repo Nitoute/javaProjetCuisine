@@ -15,6 +15,7 @@ public class AWT_ListeRecette extends Panel implements Observer {
 	public AWT_ListeRecette(ItemListener l, Modele m) throws IOException {
 		
 		this.modl = m;
+		
 		listeRecette = new List(30);
 		for (String nomRecettes : m.recettes.keySet()) {
 				listeRecette.add(nomRecettes);

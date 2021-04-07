@@ -159,15 +159,15 @@ public class Modele extends Observable {
 		this.recettes.put(nomI, listeIngredients);
 		
 		
-		if (categorie == "Entree") {
+		if (categorie == "entree") {
 			this.categorEntree.put(nomI, listeIngredients);
 		}
 		
-		if (categorie == "Plat") {
+		if (categorie == "plat") {
 			this.categorPlat.put(nomI, listeIngredients);
 		}
 		
-		if (categorie == "Dessert") {
+		if (categorie == "dessert") {
 			this.categorDessert.put(nomI, listeIngredients);
 		}
 		

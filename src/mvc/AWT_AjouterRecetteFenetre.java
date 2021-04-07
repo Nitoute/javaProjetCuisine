@@ -37,9 +37,9 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
         
         this.c=new Choice();
         c.setBounds(100,100, 75,50);  
-        c.add("Entree");  
-        c.add("Plat");  
-        c.add("Dessert");
+        c.add("entree");  
+        c.add("plat");  
+        c.add("dessert");
         
         this.nomR=new TextArea("Entree le nom de votre recette"); 
         nomR.setPreferredSize(new Dimension(200,40));
