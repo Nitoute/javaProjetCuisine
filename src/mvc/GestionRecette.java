@@ -1,6 +1,7 @@
 package mvc;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -35,8 +36,10 @@ public class GestionRecette extends Frame implements WindowListener {
 		this.add(panneauBas,BorderLayout.SOUTH);
 		
 		
-		//cdivision en grille de BorderLayout.NORTH => permet de mettre les bouttons cote à cote
-		Panel pan = new Panel(new GridLayout(1,2));
+		
+		
+		//cdivision en grille de BorderLayout.NORTH => permet de mettre les bouttons cote ï¿½ cote
+		Panel pan = new Panel(new GridLayout(1,3));
 		this.add(pan,BorderLayout.NORTH);
 		
 		AWT_AjouterRecette panneauBasDroite = new AWT_AjouterRecette(ctrl, modl);
@@ -44,6 +47,10 @@ public class GestionRecette extends Frame implements WindowListener {
 		
 		AWT_SupprimerRecette boutonSupprimerRecette = new AWT_SupprimerRecette(ctrl, modl);
 		pan.add(boutonSupprimerRecette);
+		
+		AWT_NoteRecette notes = new AWT_NoteRecette(ctrl, modl);
+		pan.add(notes);
+		
 		
 		 
 		this.addWindowListener(this);
