@@ -15,7 +15,7 @@ import java.awt.font.*;
 public class AWT_AfficheurRecette extends Canvas implements Observer {
 
 
-	List<String> ing;
+	RecetteModele ing;
 	
 
 	public AWT_AfficheurRecette(Modele m) {
@@ -41,7 +41,7 @@ public class AWT_AfficheurRecette extends Canvas implements Observer {
 		g.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
 		int x=50;
 		int y=100;
-		for (String ingrDefaut : ing) {
+		for (String ingrDefaut : ing.ingredients) {
 			g.drawString(". " + ingrDefaut, x, y);
 			y+=20;
 		}
@@ -54,7 +54,7 @@ public class AWT_AfficheurRecette extends Canvas implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		if (!(arg instanceof Integer)) {
-		List<String>in = (List<String>) arg;
+		RecetteModele in = (RecetteModele) arg;
 		this.ing=in;
 		
 		repaint();

@@ -15,7 +15,7 @@ public class Controleur implements ItemListener {
 	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		//System.out.print(e);
+		
 		if (e.getSource() instanceof java.awt.List) {
 			this.modl.selection((Integer)e.getItem());	
 		} 

@@ -19,6 +19,8 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 	Modele m;
 	ItemListener l;
 	
+	BufferedReader br;
+	
 	public AWT_SupprimerRecette(ItemListener l, Modele m) {
 		super();
 		this.b = new Button("Supprimer recette");
@@ -35,18 +37,18 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		BufferedReader br = null;
 		String line ="";
 		String csvSplit = ";";
-		String[] recettes = new String[3];
+		String[] recettes = new String[4];
 		ArrayList<String> listeNomRecette = new ArrayList<String>();
 		ArrayList<String> listeCategor = new ArrayList<String>();
 		ArrayList<String> listeIngr = new ArrayList<String>();
+		ArrayList<String> listeEtape = new ArrayList<String>();
 		
 		try {
 			this.m.supprimerRecette();//suppression de la recette dans la partie graphique
 			
-			br = new BufferedReader(new FileReader("donnees.csv")); //on parcour le csv affin de copier les valeur dans une liste
+			this.br = new BufferedReader(new FileReader("donnees.csv")); //on parcour le csv affin de copier les valeur dans une liste
 			//int i =0;
 			for (line = br.readLine(); line != null; line = br.readLine()) {
 				recettes = line.split(csvSplit);
@@ -54,14 +56,16 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 				listeNomRecette.add(recettes[0]);
 				listeCategor.add(recettes[1]);
 				listeIngr.add(recettes[2]);
+				listeEtape.add(recettes[3]);
 					
-			}
+		}
 			
 			//System.out.println(listeNomRecette);
 			int index = listeNomRecette.indexOf(this.m.nomRecetteSelec);//on supprime la recette dans la liste
 			listeNomRecette.remove(this.m.nomRecetteSelec);
 			listeCategor.remove(index);
 			listeIngr.remove(index);
+			listeEtape.remove(index);
 			//System.out.println(listeNomRecette);
 			
 			//on supprime le csv
@@ -75,7 +79,6 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 			
 			//System.out.println(listeNomRecette.get(1));
 			//ajout des lignes
-			
 			try {
 				BufferedWriter writer = new BufferedWriter(new FileWriter("donnees.csv"));
 				
@@ -85,21 +88,23 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 					writer.append(listeCategor.get(i));
 					writer.append(";");
 					writer.append(listeIngr.get(i));
+					writer.append(";");
+					writer.append(listeEtape.get(i));
 					if (i!=listeNomRecette.size()-1) {
 						writer.newLine();
 					}
 				}
 				writer.close();
-			} catch (IOException e1) {
+			}catch (ArrayIndexOutOfBoundsException e1) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				
 			}
+			
 			
 			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		//System.out.println("Bouton Appuyer dans AWT_AjouterRecette");
 	}
