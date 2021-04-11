@@ -36,7 +36,7 @@ public class GestionRecette extends Frame implements WindowListener {
 		
 		
 		//cdivision en grille de BorderLayout.NORTH => permet de mettre les bouttons cote � cote
-		Panel pan = new Panel(new GridLayout(1,3));
+		Panel pan = new Panel(new GridLayout(1,4));
 		this.add(pan,BorderLayout.NORTH);
 		
 		AWT_AfficherEtape boutonAfficherEtape = new AWT_AfficherEtape(ctrl, modl);
@@ -47,6 +47,12 @@ public class GestionRecette extends Frame implements WindowListener {
 		
 		AWT_SupprimerRecette boutonSupprimerRecette = new AWT_SupprimerRecette(ctrl, modl);
 		pan.add(boutonSupprimerRecette);
+		
+		AWT_listePourRecette boutonListePourRecette = new AWT_listePourRecette (ctrl, modl);
+		pan.add(boutonListePourRecette);
+		
+		AWT_NoteRecette notes = new AWT_NoteRecette(ctrl, modl);
+		pan.add(notes);
 		
 		 
 		this.addWindowListener(this);

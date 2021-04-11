@@ -13,9 +13,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+
+import java.awt.Color;
+
 public class AWT_SupprimerRecette extends Panel implements ActionListener{
 	
-	Button b;
+	JButton b= new JButton("Supprimer recette");
 	Modele m;
 	ItemListener l;
 	
@@ -23,8 +27,11 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 	
 	public AWT_SupprimerRecette(ItemListener l, Modele m) {
 		super();
-		this.b = new Button("Supprimer recette");
+		
+//		this.b = new Button("Supprimer recette");
 		this.b.setBounds(50,50, 150,20);
+		 
+		this.b.setBackground(Color.lightGray);
 		this.add(b);
 		this.l = l;
 		this.m = m;

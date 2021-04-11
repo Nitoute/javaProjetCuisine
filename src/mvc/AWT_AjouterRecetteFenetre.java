@@ -115,6 +115,7 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		dispose();
 		
 		
 	}
