@@ -11,7 +11,7 @@ import javax.swing.*;
 
 public class AWT_listePourRecette extends Panel implements ActionListener{
 	
-	JButton b= new JButton("achats pour recette");
+	JButton b= new JButton("Quelle Recette?");
 	Modele m;
 	ItemListener l;
 	

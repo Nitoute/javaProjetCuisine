@@ -3,6 +3,8 @@ package mvc;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 
@@ -12,6 +14,7 @@ import java.awt.event.*;
 public class AWT_listePourRecetteFenetre extends Frame implements ActionListener {
 	Modele m;
 	TextArea ingredients;
+	public HashMap<String, RecetteModele> recettes;
 	
 	public AWT_listePourRecetteFenetre(ItemListener l, Modele m) throws IOException {
 		super();
@@ -19,21 +22,30 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 		this.m=m;
 		
 		Dialog d = new Dialog(this); 
-	    d.setTitle("ingrÃ©dients Ã  acheter");
+	    d.setTitle("Quelle recette");
 	    
 	    d.setLayout( new BoxLayout(d ,BoxLayout.Y_AXIS ) );
 	    
+	    
+	    
+	    
+	    
 	    this.ingredients=new TextArea("Entrer les ingredients a votre dsposition"); 
         ingredients.setPreferredSize(new Dimension(200,40));
+      
+        d.add(this.ingredients);
         
-        Button envoy = new Button("calcul ingredients a acheter");
+        
+        
+        Button envoy = new Button("Envoyer");
         envoy.setPreferredSize(new Dimension(200,40));
-        envoy.addActionListener(this);
+        envoy.addActionListener(this);  
+        d.add(envoy);
         
-        d.add( new Label ("Veuillez entrer les ingredients a votre dsposition"));
+        
         d.setSize(500,600);
         d.setVisible(true);
-        d.add(envoy);
+       
         d.addWindowListener(new WindowAdapter()
 		{
 	public void windowClosed(WindowEvent e)
@@ -51,7 +63,50 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		String[] ingUtilisateur = (this.ingredients.getText()).split(",");//ingredients que possede l'utilisateur
+		this.recettes=this.m.recettes;
+		String[] recettePossible = new String[this.recettes.size()];//on initalise un tableau de string de taille maximale
+		boolean rPos;
 		
+		for ( String nomR : this.recettes.keySet() ) {
+			rPos = true;
+			//clé => nomR
+			//System.out.println("clé: "+nomR);
+			RecetteModele r = this.recettes.get(nomR);
+			//valeur => r (c'est une recette modele)
+			List<String> ingRecette = r.ingredients;//liste des ingredients de la recette
+			//System.out.println(ing);
+			
+			//on veut savoir si l'utilisateur a une liste d'ingredients qlcqque pour fair ene recette
+			//on elimine le plus de cas en testant la taille de la liste de L'utilisateur et la liste d'ingredient d ela recette
+			
+			if(ingUtilisateur.length<ingRecette.size()) {
+				rPos = false;
+			}
+			
+			for (int i=0; i<ingRecette.size(); i++) {
+				for (int j=0; j<ingUtilisateur.length; j++) {
+					if((ingUtilisateur[j].split(" ")).length==1) {
+						String[] s = ingRecette.get(i).split(" ");
+						for(int k=0; k<(ingRecette.get(i).split(" ")).length; k++) {
+							if(! s[k].equals(ingUtilisateur[j])) {
+								rPos=false;
+							}
+							else {
+								rPos=true;
+							}
+						}
+					}
+				}
+				
+			}
+			if (rPos) {
+				System.out.println(nomR);
+			}
+			
+	    	
+			}
+	
 		
 	}
 
