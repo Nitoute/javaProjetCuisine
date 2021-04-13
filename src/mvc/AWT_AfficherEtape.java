@@ -6,16 +6,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 
+import javax.swing.JButton;
+
 public class AWT_AfficherEtape extends Panel implements ActionListener{
 	
 	Modele m;
 	ItemListener l;
-	Button b;
+	JButton b= new JButton("Aafficher Etape");;
 	
 
 	public AWT_AfficherEtape(ItemListener l, Modele m) {
 		super();
-		this.b = new Button("Afficher Etape");
+//		this.b = new Button("Afficher Etape");
 		this.b.setBounds(50,50, 150,20);
 		this.m=m;
 		this.l=l;

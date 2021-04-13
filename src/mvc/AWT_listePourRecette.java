@@ -19,7 +19,7 @@ public class AWT_listePourRecette extends Panel implements ActionListener{
 		super();
 
 		this.b.setBounds(50,50, 150,20);
-		this.b.setBackground(Color.lightGray);
+//		this.b.setBackground(Color.lightGray);
 		this.m = m;
 		this.l = l;
 		this.add(b);

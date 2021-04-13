@@ -9,14 +9,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 
+import javax.swing.JButton;
+
 public class AWT_NoteRecette extends Panel implements ActionListener {
-	Button b;
+	JButton b= new JButton("Notes");
 	Modele m;
 	ItemListener l;
 	
 	public AWT_NoteRecette(ItemListener l, Modele m) throws IOException {
 		super();
-		this.b = new Button("Notes");
+		
 		this.b.setBounds(50,50, 150,20);
 		this.m = m;
 		this.l = l;

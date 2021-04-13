@@ -22,7 +22,7 @@ public class AWT_AjouterRecette extends Panel implements ActionListener{
 		super();
 //		this.b = new Button("Ajouter recette");
 		this.b.setBounds(50,50, 150,20);
-		this.b.setBackground(Color.lightGray);
+//		this.b.setBackground(Color.lightGray);
 		this.m = m;
 		this.l = l;
 		this.add(b);
