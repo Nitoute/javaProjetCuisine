@@ -31,7 +31,7 @@ public class AWT_SupprimerRecette extends Panel implements ActionListener{
 //		this.b = new Button("Supprimer recette");
 		this.b.setBounds(50,50, 150,20);
 		 
-		this.b.setBackground(Color.lightGray);
+//		this.b.setBackground(Color.lightGray);
 		this.add(b);
 		this.l = l;
 		this.m = m;
