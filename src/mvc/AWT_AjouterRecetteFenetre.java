@@ -25,7 +25,7 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
 	TextArea etapIngr;
 	Choice c;
 
-	public AWT_AjouterRecetteFenetre(ItemListener l, Modele m) throws IOException {
+	public AWT_AjouterRecetteFenetre(Modele m) throws IOException {
 		super();
 		
 		this.m=m;

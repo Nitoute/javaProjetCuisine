@@ -184,5 +184,15 @@ public class Modele extends Observable {
 		this.setChanged();
 		this.notifyObservers(this.categor);
 	}
+	
+	public void etapeSuiv() {
+		this.setChanged();
+		this.notifyObservers("Etape Suivante");
+	}
+	
+	public void etapePrec() {
+		this.setChanged();
+		this.notifyObservers("Etape Precedente");
+	}
 	 
 }

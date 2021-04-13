@@ -28,8 +28,18 @@ public class GestionRecette extends Frame implements WindowListener {
 		AWT_ListeRecette panneauGauche = new AWT_ListeRecette(ctrl, modl);
 		this.add(panneauGauche, BorderLayout.WEST);
 
+		Panel centre = new Panel(new GridLayout(3,1));
+		Panel bout2 = new Panel(new GridLayout(1,2));
 		AWT_AfficheurRecette panneauDroite = new AWT_AfficheurRecette(modl);
-		this.add(panneauDroite, BorderLayout.EAST);
+		AWT_AfficheurEtapes panneauDroite2 = new AWT_AfficheurEtapes(modl);
+		AWT_EtapeSuivante panneauDroite3 = new AWT_EtapeSuivante(modl);
+		AWT_EtapePrecedente panneauDroite4 = new AWT_EtapePrecedente(modl);
+		centre.add(panneauDroite);
+		centre.add(panneauDroite2);
+		bout2.add(panneauDroite4);
+		bout2.add(panneauDroite3);
+		centre.add(bout2);
+		this.add(centre, BorderLayout.EAST);
 
 		AWT_Categories panneauBas = new AWT_Categories(ctrl, modl);
 		this.add(panneauBas,BorderLayout.SOUTH);
@@ -39,10 +49,10 @@ public class GestionRecette extends Frame implements WindowListener {
 		Panel pan = new Panel(new GridLayout(1,4));
 		this.add(pan,BorderLayout.NORTH);
 		
-		AWT_AfficherEtape boutonAfficherEtape = new AWT_AfficherEtape(ctrl, modl);
-		pan.add(boutonAfficherEtape);
+		AWT_AfficherImage boutonAfficherImage = new AWT_AfficherImage(ctrl, modl);
+		pan.add(boutonAfficherImage);
 		
-		AWT_AjouterRecette panneauBasDroite = new AWT_AjouterRecette(ctrl, modl);
+		AWT_AjouterRecette panneauBasDroite = new AWT_AjouterRecette(modl);
 		pan.add(panneauBasDroite);
 		
 		AWT_SupprimerRecette boutonSupprimerRecette = new AWT_SupprimerRecette(ctrl, modl);

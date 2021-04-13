@@ -16,7 +16,7 @@ public class AWT_ListeRecette extends Panel implements Observer {
 		
 		this.modl = m;
 		
-		listeRecette = new List(30);
+		listeRecette = new List(50);
 		for (String nomRecettes : m.recettes.keySet()) {
 				listeRecette.add(nomRecettes);
 		}

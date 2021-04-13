@@ -46,14 +46,13 @@ public class AWT_AfficheurRecette extends Canvas implements Observer {
 			y+=20;
 		}
 		
-		
 		 
 		
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if (!(arg instanceof Integer)) {
+		if (arg instanceof RecetteModele) {
 		RecetteModele in = (RecetteModele) arg;
 		this.ing=in;
 		

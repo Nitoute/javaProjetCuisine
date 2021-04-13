@@ -7,24 +7,21 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
-import javax.swing.*;
 
 
 
 public class AWT_AjouterRecette extends Panel implements ActionListener{
 	
-	JButton b= new JButton("Ajouter recette");
+	Button b;
 	Modele m;
-	ItemListener l;
 	
 
-	public AWT_AjouterRecette(ItemListener l, Modele m) {
+	public AWT_AjouterRecette(Modele m) {
 		super();
-//		this.b = new Button("Ajouter recette");
+		this.b = new Button("Ajouter recette");
 		this.b.setBounds(50,50, 150,20);
 		this.b.setBackground(Color.lightGray);
 		this.m = m;
-		this.l = l;
 		this.add(b);
 		
 		
@@ -36,7 +33,7 @@ public class AWT_AjouterRecette extends Panel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		try {
-			AWT_AjouterRecetteFenetre pop = new AWT_AjouterRecetteFenetre(this.l,this.m);
+			AWT_AjouterRecetteFenetre pop = new AWT_AjouterRecetteFenetre(this.m);
 			//AWT_SupprimerRecetteFenetre pop1 = new AWT_SupprimerRecetteFenetre();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
