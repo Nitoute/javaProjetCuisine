@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import java.awt.TextArea;
 import java.awt.Dialog;
 import java.awt.Dimension;
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import java.awt.event.*;
 
@@ -80,11 +82,11 @@ public class AWT_listePourRecetteFenetre extends JFrame implements ActionListene
 		ArrayList rPos;
 		
 		for ( String nomR : this.recettes.keySet() ) {
-<<<<<<< HEAD
-			rPos = true;
-=======
+
+			
+
 			rPos = new ArrayList();
->>>>>>> cbeb45259819bffde7148ef3b241af45681601f5
+
 			//cl� => nomR
 			//System.out.println("cl�: "+nomR);
 			RecetteModele r = this.recettes.get(nomR);
