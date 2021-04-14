@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
@@ -13,6 +15,8 @@ public class GestionRecette extends JFrame implements WindowListener {
 
 	public static void main(String[] args) throws IOException {
 		new GestionRecette();
+		
+		
 	}
 
 	public GestionRecette() throws IOException {
