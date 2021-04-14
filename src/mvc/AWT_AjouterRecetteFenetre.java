@@ -7,11 +7,17 @@ import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 
-import java.awt.*;
+import java.awt.TextArea;
+import java.awt.Choice;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.Button;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
 import java.awt.event.*;
 
 
-public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
+public class AWT_AjouterRecetteFenetre extends JFrame implements ActionListener{
 	
 	Modele m;
 	
@@ -57,13 +63,13 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
         envoy.setPreferredSize(new Dimension(200,40));
         envoy.addActionListener(this);  
        
-        d.add( new Label ("Veuillez choisir une categorie :"));  
+        d.add( new JLabel ("Veuillez choisir une categorie :"));  
         d.add(c);
-        d.add(new Label ("Indiquez le nom de votre recette :"));
+        d.add(new JLabel ("Indiquez le nom de votre recette :"));
         d.add(nomR);
-        d.add(new Label ("Ajouter les ingredients de votre recettes :"));
+        d.add(new JLabel ("Ajouter les ingredients de votre recettes :"));
         d.add(ingrd);
-        d.add(new Label ("Ajouter les etapes de votre recettes :"));
+        d.add(new JLabel ("Ajouter les etapes de votre recettes :"));
         d.add(etapIngr);
         d.add(envoy);
         d.setSize(500,600);    

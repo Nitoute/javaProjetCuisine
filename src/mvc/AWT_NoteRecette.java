@@ -1,17 +1,13 @@
 package mvc;
 
-import java.awt.Button;
-import java.awt.Dimension;
-import java.awt.Panel;
-import java.awt.TextArea;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 
-import javax.swing.JButton;
-
-public class AWT_NoteRecette extends Panel implements ActionListener {
+public class AWT_NoteRecette extends JPanel implements ActionListener {
 	JButton b= new JButton("Notes");
 	Modele m;
 	ItemListener l;

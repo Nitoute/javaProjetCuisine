@@ -1,24 +1,22 @@
 package mvc;
 
-import java.awt.Button;
-import java.awt.Panel;
-import java.awt.event.ItemListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Color;
 
 
 
-public class AWT_AjouterRecette extends Panel implements ActionListener{
+public class AWT_AjouterRecette extends JPanel implements ActionListener{
 	
-	Button b;
+	JButton b;
 	Modele m;
 	
 
 	public AWT_AjouterRecette(Modele m) {
 		super();
-		this.b = new Button("Ajouter recette");
+		this.b = new JButton("Ajouter recette");
 		this.b.setBounds(50,50, 150,20);
 //		this.b.setBackground(Color.lightGray);
 		this.m = m;

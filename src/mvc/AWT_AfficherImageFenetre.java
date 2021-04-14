@@ -1,9 +1,9 @@
 package mvc;
 
-import java.awt.Frame;
+import javax.swing.JFrame;
 import java.awt.event.ItemListener;
 
-public class AWT_AfficherImageFenetre extends Frame {
+public class AWT_AfficherImageFenetre extends JFrame {
 
 	Modele m;
 

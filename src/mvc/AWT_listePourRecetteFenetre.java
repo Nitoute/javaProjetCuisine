@@ -1,17 +1,19 @@
 package mvc;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.BoxLayout;
 
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.TextArea;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import javax.swing.JButton;
 import java.awt.event.*;
 
-public class AWT_listePourRecetteFenetre extends Frame implements ActionListener {
+public class AWT_listePourRecetteFenetre extends JFrame implements ActionListener {
 	Modele m;
 	TextArea ingredients;
 	public HashMap<String, RecetteModele> recettes;
@@ -37,7 +39,7 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
         
         
         
-        Button envoy = new Button("Envoyer");
+        JButton envoy = new JButton("Envoyer");
         envoy.setPreferredSize(new Dimension(200,40));
         envoy.addActionListener(this);  
         d.add(envoy);
@@ -70,8 +72,8 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 		
 		for ( String nomR : this.recettes.keySet() ) {
 			rPos = true;
-			//clé => nomR
-			//System.out.println("clé: "+nomR);
+			//clï¿½ => nomR
+			//System.out.println("clï¿½: "+nomR);
 			RecetteModele r = this.recettes.get(nomR);
 			//valeur => r (c'est une recette modele)
 			List<String> ingRecette = r.ingredients;//liste des ingredients de la recette

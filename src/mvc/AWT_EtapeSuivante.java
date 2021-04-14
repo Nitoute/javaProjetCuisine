@@ -1,17 +1,17 @@
 package mvc;
 
-import java.awt.Button;
-import java.awt.Panel;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AWT_EtapeSuivante extends Panel implements ActionListener {
+public class AWT_EtapeSuivante extends JPanel implements ActionListener {
 
 	Modele m;
 	
 	public AWT_EtapeSuivante(Modele m) {
 		super();
-		Button b = new Button("Etape Suivante");
+		JButton b = new JButton("Etape Suivante");
 		this.add(b);
 		this.m = m;
 		

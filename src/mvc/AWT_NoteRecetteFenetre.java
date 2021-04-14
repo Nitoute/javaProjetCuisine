@@ -1,9 +1,9 @@
 package mvc;
 
-import java.awt.Button;
-import java.awt.Dialog;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import java.awt.Dimension;
-import java.awt.Frame;
+import javax.swing.JFrame;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +18,7 @@ import java.io.IOException;
 
 import javax.swing.BoxLayout;
 
-public class AWT_NoteRecetteFenetre extends Frame implements ActionListener{
+public class AWT_NoteRecetteFenetre extends JFrame implements ActionListener{
 	
 	String nouvNote;
 	Modele m;
@@ -34,7 +34,7 @@ public class AWT_NoteRecetteFenetre extends Frame implements ActionListener{
 		String defaultNote = "Entrez vos notes ici: 'J'ai utilisé 4 oeufs au lieu de 6'";
 		
 		
-	    Dialog d = new Dialog(this); 
+	    JDialog d = new JDialog(this); 
 	    d.setTitle("Notifier la recette");
 	    
 	    d.setLayout( new BoxLayout(d ,BoxLayout.Y_AXIS ) );
@@ -57,7 +57,7 @@ public class AWT_NoteRecetteFenetre extends Frame implements ActionListener{
 	    this.zoneTexte=new TextArea(defaultNote); 
 	    zoneTexte.setPreferredSize(new Dimension(200,40));
 	    
-	    Button envoy = new Button("Sauvegarder");
+	    JButton envoy = new JButton("Sauvegarder");
         envoy.setPreferredSize(new Dimension(200,40));
         envoy.addActionListener(this);
 		d.add(this.zoneTexte);
