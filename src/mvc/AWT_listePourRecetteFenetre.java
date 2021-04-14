@@ -1,6 +1,7 @@
 package mvc;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.awt.event.*;
 public class AWT_listePourRecetteFenetre extends JFrame implements ActionListener {
 	Modele m;
 	TextArea ingredients;
+	TextArea recettesPossible;
 	public HashMap<String, RecetteModele> recettes;
 	
 	public AWT_listePourRecetteFenetre(ItemListener l, Modele m) throws IOException {
@@ -26,10 +28,8 @@ public class AWT_listePourRecetteFenetre extends JFrame implements ActionListene
 		Dialog d = new Dialog(this); 
 	    d.setTitle("Quelle recette");
 	    
-	    d.setLayout( new BoxLayout(d ,BoxLayout.Y_AXIS ) );
-	    
-	    
-	    
+	    d.setLayout( new GridLayout(3, 1) );
+	   
 	    
 	    
 	    this.ingredients=new TextArea("Entrer les ingredients a votre dsposition"); 
@@ -38,9 +38,18 @@ public class AWT_listePourRecetteFenetre extends JFrame implements ActionListene
         d.add(this.ingredients);
         
         
+       
         
+        this.recettesPossible=new TextArea("Liste des recettes possibles"); 
+        recettesPossible.setPreferredSize(new Dimension(200,40));
+        
+        
+        d.add(this.recettesPossible);
+        
+
         JButton envoy = new JButton("Envoyer");
         envoy.setPreferredSize(new Dimension(200,40));
+
         envoy.addActionListener(this);  
         d.add(envoy);
         
@@ -67,11 +76,15 @@ public class AWT_listePourRecetteFenetre extends JFrame implements ActionListene
 	public void actionPerformed(ActionEvent arg0) {
 		String[] ingUtilisateur = (this.ingredients.getText()).split(",");//ingredients que possede l'utilisateur
 		this.recettes=this.m.recettes;
-		String[] recettePossible = new String[this.recettes.size()];//on initalise un tableau de string de taille maximale
-		boolean rPos;
+		ArrayList<String> recettePossible = new ArrayList<String>();//on initalise un tableau de string de taille maximale
+		ArrayList rPos;
 		
 		for ( String nomR : this.recettes.keySet() ) {
+<<<<<<< HEAD
 			rPos = true;
+=======
+			rPos = new ArrayList();
+>>>>>>> cbeb45259819bffde7148ef3b241af45681601f5
 			//cl� => nomR
 			//System.out.println("cl�: "+nomR);
 			RecetteModele r = this.recettes.get(nomR);
@@ -82,30 +95,36 @@ public class AWT_listePourRecetteFenetre extends JFrame implements ActionListene
 			//on veut savoir si l'utilisateur a une liste d'ingredients qlcqque pour fair ene recette
 			//on elimine le plus de cas en testant la taille de la liste de L'utilisateur et la liste d'ingredient d ela recette
 			
+			/*
 			if(ingUtilisateur.length<ingRecette.size()) {
 				rPos = false;
 			}
+			*/
 			
 			for (int i=0; i<ingRecette.size(); i++) {
 				for (int j=0; j<ingUtilisateur.length; j++) {
 					if((ingUtilisateur[j].split(" ")).length==1) {
 						String[] s = ingRecette.get(i).split(" ");
 						for(int k=0; k<(ingRecette.get(i).split(" ")).length; k++) {
-							if(! s[k].equals(ingUtilisateur[j])) {
-								rPos=false;
-							}
-							else {
-								rPos=true;
+							if(s[k].equals(ingUtilisateur[j])) {
+								rPos.add(true);
 							}
 						}
 					}
+				
 				}
 				
 			}
-			if (rPos) {
+			if (rPos.size()==ingRecette.size()) {
 				System.out.println(nomR);
+				recettePossible.add(nomR);
+				
 			}
-			
+			String s ="";
+			for(int i=0; i<recettePossible.size(); i++) {
+				s = s + recettePossible.get(i)+"\n";
+			}
+			recettesPossible.setText(s);
 	    	
 			}
 	
