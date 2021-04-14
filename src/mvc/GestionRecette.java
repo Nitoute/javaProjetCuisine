@@ -61,6 +61,9 @@ public class GestionRecette extends Frame implements WindowListener {
 		AWT_listePourRecette boutonListePourRecette = new AWT_listePourRecette (ctrl, modl);
 		pan.add(boutonListePourRecette);
 		
+		AWT_ListeCourse boutonListeCourse= new AWT_ListeCourse (ctrl, modl);
+		pan.add(boutonListeCourse);
+		
 		AWT_NoteRecette notes = new AWT_NoteRecette(ctrl, modl);
 		pan.add(notes);
 		
