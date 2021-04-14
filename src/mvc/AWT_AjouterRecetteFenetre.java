@@ -7,11 +7,17 @@ import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 
-import java.awt.*;
+import javax.swing.JTextArea;
+import java.awt.Choice;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.Button;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
 import java.awt.event.*;
 
 
-public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
+public class AWT_AjouterRecetteFenetre extends JFrame implements ActionListener{
 	
 	Modele m;
 	
@@ -20,9 +26,9 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
 	String[] nouvIngr;
 	String[] nouvEtape;
 	
-	TextArea nomR;
-	TextArea ingrd;
-	TextArea etapIngr;
+	JTextArea nomR;
+	JTextArea ingrd;
+	JTextArea etapIngr;
 	Choice c;
 
 	public AWT_AjouterRecetteFenetre(Modele m) throws IOException {
@@ -44,26 +50,26 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
         c.add("plat");  
         c.add("dessert");
         
-        this.nomR=new TextArea("Entree le nom de votre recette"); 
+        this.nomR=new JTextArea("Entree le nom de votre recette"); 
         nomR.setPreferredSize(new Dimension(200,40));
         
-        this.ingrd=new TextArea("Entree la liste de vos ingredients"); 
+        this.ingrd=new JTextArea("Entree la liste de vos ingredients"); 
         ingrd.setPreferredSize(new Dimension(200,40));
         
-        this.etapIngr=new TextArea("Entree la liste de vos etapes"); 
+        this.etapIngr=new JTextArea("Entree la liste de vos etapes"); 
         etapIngr.setPreferredSize(new Dimension(200,40));;
         
         Button envoy = new Button("Envoyer");
         envoy.setPreferredSize(new Dimension(200,40));
         envoy.addActionListener(this);  
        
-        d.add( new Label ("Veuillez choisir une categorie :"));  
+        d.add( new JLabel ("Veuillez choisir une categorie :"));  
         d.add(c);
-        d.add(new Label ("Indiquez le nom de votre recette :"));
+        d.add(new JLabel ("Indiquez le nom de votre recette :"));
         d.add(nomR);
-        d.add(new Label ("Ajouter les ingredients de votre recettes :"));
+        d.add(new JLabel ("Ajouter les ingredients de votre recettes :"));
         d.add(ingrd);
-        d.add(new Label ("Ajouter les etapes de votre recettes :"));
+        d.add(new JLabel ("Ajouter les etapes de votre recettes :"));
         d.add(etapIngr);
         d.add(envoy);
         d.setSize(500,600);    
@@ -104,12 +110,12 @@ public class AWT_AjouterRecetteFenetre extends Frame implements ActionListener{
 		}
 		RecetteModele nouvRecette = new RecetteModele(listeIngredients,listeEtapes,this.nouvCatgr,this.nouvNomR);
 		this.m.ajouterRecette(nouvRecette);
-		
+		String nouvRecetteAj= this.nouvNomR+";"+this.nouvCatgr+";"+this.ingrd.getText()+";"+this.etapIngr.getText();
 		try {
-			String nouvRecetteAj= this.nouvNomR+";"+this.nouvCatgr+";"+this.ingrd.getText()+";"+this.etapIngr.getText();
 			BufferedWriter writer = new BufferedWriter(new FileWriter("donnees.csv", true));
-			writer.newLine();
+			//writer.newLine();
 			writer.append(nouvRecetteAj);
+			writer.newLine();
 			writer.close();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block

@@ -1,13 +1,13 @@
 package mvc;
 
 import java.awt.List;
-import java.awt.Panel;
+import javax.swing.JPanel;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
-public class AWT_ListeRecette extends Panel implements Observer {
+public class AWT_ListeRecette extends JPanel implements Observer {
 	
 	List listeRecette;
 	Modele modl;

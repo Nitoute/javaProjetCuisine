@@ -2,14 +2,11 @@ package mvc;
 
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.GraphicsEnvironment;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
-import java.awt.font.*;
 
 
 public class AWT_AfficheurRecette extends Canvas implements Observer {

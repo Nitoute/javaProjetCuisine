@@ -33,7 +33,7 @@ public class AWT_AfficheurEtapes extends Canvas implements Observer{
 		g.setFont(new java.awt.Font(Font.DIALOG,Font.BOLD,20));
 		int x=50;
 		int y=100;
-		g.drawString("Etape n°"+(this.numEtp+1), x, y);
+		g.drawString("Etape nÂ°"+(this.numEtp+1), x, y);
 		y+=20;
 		g.drawString(". " + etp.etapes.get(this.numEtp), x, y);
 		y+=20;

@@ -1,21 +1,22 @@
 package mvc;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import javax.swing.JFrame;
 import java.awt.GridLayout;
-import java.awt.Panel;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
 
 
-public class GestionRecette extends Frame implements WindowListener {
+public class GestionRecette extends JFrame implements WindowListener {
 
 	public static void main(String[] args) throws IOException {
 		new GestionRecette();
+		
+		
 	}
 
 	public GestionRecette() throws IOException {
@@ -28,8 +29,8 @@ public class GestionRecette extends Frame implements WindowListener {
 		AWT_ListeRecette panneauGauche = new AWT_ListeRecette(ctrl, modl);
 		this.add(panneauGauche, BorderLayout.WEST);
 
-		Panel centre = new Panel(new GridLayout(3,1));
-		Panel bout2 = new Panel(new GridLayout(1,2));
+		JPanel centre = new JPanel(new GridLayout(3,1));
+		JPanel bout2 = new JPanel(new GridLayout(1,2));
 		AWT_AfficheurRecette panneauDroite = new AWT_AfficheurRecette(modl);
 		AWT_AfficheurEtapes panneauDroite2 = new AWT_AfficheurEtapes(modl);
 		AWT_EtapeSuivante panneauDroite3 = new AWT_EtapeSuivante(modl);
@@ -46,7 +47,7 @@ public class GestionRecette extends Frame implements WindowListener {
 		
 		
 		//cdivision en grille de BorderLayout.NORTH => permet de mettre les bouttons cote � cote
-		Panel pan = new Panel(new GridLayout(1,4));
+		JPanel pan = new JPanel(new GridLayout(1,4));
 		this.add(pan,BorderLayout.NORTH);
 		
 		AWT_AfficherImage boutonAfficherImage = new AWT_AfficherImage(ctrl, modl);

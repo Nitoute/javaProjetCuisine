@@ -1,10 +1,12 @@
 package mvc;
 
-import java.awt.Button;
-import java.awt.Dialog;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.TextArea;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
@@ -18,11 +20,11 @@ import java.io.IOException;
 
 import javax.swing.BoxLayout;
 
-public class AWT_NoteRecetteFenetre extends Frame implements ActionListener{
+public class AWT_NoteRecetteFenetre extends JFrame implements ActionListener{
 	
 	String nouvNote;
 	Modele m;
-	TextArea zoneTexte;
+	JTextArea zoneTexte;
 	
 	public AWT_NoteRecetteFenetre(ItemListener l, Modele m) throws IOException {
 		super();
@@ -34,10 +36,10 @@ public class AWT_NoteRecetteFenetre extends Frame implements ActionListener{
 		String defaultNote = "Entrez vos notes ici: 'J'ai utilisé 4 oeufs au lieu de 6'";
 		
 		
-	    Dialog d = new Dialog(this); 
+	    JDialog d = new JDialog(this); 
 	    d.setTitle("Notifier la recette");
 	    
-	    d.setLayout( new BoxLayout(d ,BoxLayout.Y_AXIS ) );
+	    d.setLayout(new GridLayout(2,1));
 	    
 	    br = new BufferedReader(new FileReader("note.csv")); //on parcour le csv affin de charger les note
 		for (line = br.readLine(); line != null; line = br.readLine()) {
@@ -54,10 +56,10 @@ public class AWT_NoteRecetteFenetre extends Frame implements ActionListener{
 		}
 		br.close();
 	    
-	    this.zoneTexte=new TextArea(defaultNote); 
+	    this.zoneTexte=new JTextArea(defaultNote); 
 	    zoneTexte.setPreferredSize(new Dimension(200,40));
 	    
-	    Button envoy = new Button("Sauvegarder");
+	    JButton envoy = new JButton("Sauvegarder");
         envoy.setPreferredSize(new Dimension(200,40));
         envoy.addActionListener(this);
 		d.add(this.zoneTexte);

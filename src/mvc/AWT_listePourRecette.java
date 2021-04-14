@@ -1,15 +1,15 @@
 package mvc;
 
-import java.awt.Button;
-import java.awt.Panel;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
-import javax.swing.*;
 
-public class AWT_listePourRecette extends Panel implements ActionListener{
+
+public class AWT_listePourRecette extends JPanel implements ActionListener{
 	
 	JButton b= new JButton("Quelle Recette?");
 	Modele m;

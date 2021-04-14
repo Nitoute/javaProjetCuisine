@@ -4,12 +4,12 @@ import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Panel;
+import javax.swing.JPanel;
 import java.awt.event.ItemListener;
 import java.util.Observable;
 import java.util.Observer;
 
-public class AWT_Categories extends Panel implements Observer{
+public class AWT_Categories extends JPanel implements Observer{
 	Checkbox[] categories = new Checkbox[4];
 	
 	public static String[] libelles = {"Entree", "Plat", "Dessert","tout"};

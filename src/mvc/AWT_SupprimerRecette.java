@@ -1,13 +1,11 @@
 package mvc;
 
-import java.awt.Button;
-import java.awt.Panel;
+import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,9 +13,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-import java.awt.Color;
-
-public class AWT_SupprimerRecette extends Panel implements ActionListener{
+public class AWT_SupprimerRecette extends JPanel implements ActionListener{
 	
 	JButton b= new JButton("Supprimer recette");
 	Modele m;
