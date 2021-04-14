@@ -15,6 +15,7 @@ import java.awt.event.*;
 public class AWT_listePourRecetteFenetre extends Frame implements ActionListener {
 	Modele m;
 	TextArea ingredients;
+	TextArea recettesPossible;
 	public HashMap<String, RecetteModele> recettes;
 	
 	public AWT_listePourRecetteFenetre(ItemListener l, Modele m) throws IOException {
@@ -25,10 +26,8 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 		Dialog d = new Dialog(this); 
 	    d.setTitle("Quelle recette");
 	    
-	    d.setLayout( new BoxLayout(d ,BoxLayout.Y_AXIS ) );
-	    
-	    
-	    
+	    d.setLayout( new GridLayout(3, 1) );
+	   
 	    
 	    
 	    this.ingredients=new TextArea("Entrer les ingredients a votre dsposition"); 
@@ -37,9 +36,16 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
         d.add(this.ingredients);
         
         
+       
+        
+        this.recettesPossible=new TextArea("Liste des recettes possibles"); 
+        recettesPossible.setPreferredSize(new Dimension(200,40));
+        
+        
+        d.add(this.recettesPossible);
         
         Button envoy = new Button("Envoyer");
-        envoy.setPreferredSize(new Dimension(200,40));
+        envoy.setPreferredSize(new Dimension(100,40));
         envoy.addActionListener(this);  
         d.add(envoy);
         
@@ -66,7 +72,7 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 	public void actionPerformed(ActionEvent arg0) {
 		String[] ingUtilisateur = (this.ingredients.getText()).split(",");//ingredients que possede l'utilisateur
 		this.recettes=this.m.recettes;
-		String[] recettePossible = new String[this.recettes.size()];//on initalise un tableau de string de taille maximale
+		ArrayList<String> recettePossible = new ArrayList<String>();//on initalise un tableau de string de taille maximale
 		ArrayList rPos;
 		
 		for ( String nomR : this.recettes.keySet() ) {
@@ -95,18 +101,22 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 							if(s[k].equals(ingUtilisateur[j])) {
 								rPos.add(true);
 							}
-							else {
-								//test
-							}
 						}
 					}
+				
 				}
 				
 			}
 			if (rPos.size()==ingRecette.size()) {
 				System.out.println(nomR);
+				recettePossible.add(nomR);
+				
 			}
-			
+			String s ="";
+			for(int i=0; i<recettePossible.size(); i++) {
+				s = s + recettePossible.get(i)+"\n";
+			}
+			recettesPossible.setText(s);
 	    	
 			}
 	
