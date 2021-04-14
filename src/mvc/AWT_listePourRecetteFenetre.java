@@ -3,6 +3,7 @@ package mvc;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -66,12 +67,12 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 		String[] ingUtilisateur = (this.ingredients.getText()).split(",");//ingredients que possede l'utilisateur
 		this.recettes=this.m.recettes;
 		String[] recettePossible = new String[this.recettes.size()];//on initalise un tableau de string de taille maximale
-		boolean rPos;
+		ArrayList rPos;
 		
 		for ( String nomR : this.recettes.keySet() ) {
-			rPos = true;
-			//clé => nomR
-			//System.out.println("clé: "+nomR);
+			rPos = new ArrayList();
+			//clï¿½ => nomR
+			//System.out.println("clï¿½: "+nomR);
 			RecetteModele r = this.recettes.get(nomR);
 			//valeur => r (c'est une recette modele)
 			List<String> ingRecette = r.ingredients;//liste des ingredients de la recette
@@ -80,27 +81,29 @@ public class AWT_listePourRecetteFenetre extends Frame implements ActionListener
 			//on veut savoir si l'utilisateur a une liste d'ingredients qlcqque pour fair ene recette
 			//on elimine le plus de cas en testant la taille de la liste de L'utilisateur et la liste d'ingredient d ela recette
 			
+			/*
 			if(ingUtilisateur.length<ingRecette.size()) {
 				rPos = false;
 			}
+			*/
 			
 			for (int i=0; i<ingRecette.size(); i++) {
 				for (int j=0; j<ingUtilisateur.length; j++) {
 					if((ingUtilisateur[j].split(" ")).length==1) {
 						String[] s = ingRecette.get(i).split(" ");
 						for(int k=0; k<(ingRecette.get(i).split(" ")).length; k++) {
-							if(! s[k].equals(ingUtilisateur[j])) {
-								rPos=false;
+							if(s[k].equals(ingUtilisateur[j])) {
+								rPos.add(true);
 							}
 							else {
-								rPos=true;
+								//test
 							}
 						}
 					}
 				}
 				
 			}
-			if (rPos) {
+			if (rPos.size()==ingRecette.size()) {
 				System.out.println(nomR);
 			}
 			
